@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Infinite Scroll — Posts{% endblock %}
+
+{% block body %}
+<div class="min-vh-100 bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#"><i class="bi bi-infinity fs-4"></i>Infinite Posts</a>
+            <span class="badge bg-light text-primary rounded-pill px-3 py-2"><i class="bi bi-lightning-charge-fill me-1"></i>Symfony UX Live Component</span>
+        </div>
+    </nav>
+
+    <header class="bg-primary bg-gradient text-white py-5">
+        <div class="container text-center">
+            <h1 class="display-5 fw-bold mb-2">Flux de posts en continu</h1>
+            <p class="lead opacity-75 mb-0">Défilez pour charger automatiquement plus d'articles via<strong>Symfony UX Live Component</strong> &amp; <strong>Stimulus</strong></p>
+            <p class="lead mb-0">Données provenant de <a href="https://dummyjson.com/docs/posts" class="text-white-50" target="_blank" rel="noopener">dummyjson.com</a></p>
+        </div>
+    </header>
+
+    <main class="container py-5">
+        {{ component('PostFeed') }}
+    </main>
+
+    <footer class="bg-dark text-white-50 text-center py-3 small">
+        <i class="bi bi-c-circle"></i> {{ 'now' |date('Y') }} Laurent Passebecq - Symfony version {{ constant('Symfony\\Component\\HttpKernel\\Kernel::VERSION') }}
+    </footer>
+</div>
+{% endblock %}
